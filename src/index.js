@@ -12,6 +12,10 @@ app.use(bodyParser.json());
 //DataBase Connect
 DataBaseconnect()
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
 const AuthRoutes=require("./Route/Auth");
 const AppointmentRoutes=require("./Route/Appointment");
 const DoctorRoutes=require('./Route/Doctor');
