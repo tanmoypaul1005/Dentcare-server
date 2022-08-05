@@ -39,7 +39,6 @@ const Appointment = require("../Model/Appointment");
 
 module.exports.addAppointment=(req,res)=>{
   const{date,doctor,user,service}=req.body;
-  console.log(req.body);
   
   Appointment.findOne({date:date,doctor:doctor,user:user})
   .exec((error,data)=>{
@@ -59,7 +58,6 @@ module.exports.addAppointment=(req,res)=>{
 
 module.exports.GetAppointment=(req,res)=>{
   const{user}=req.body.id;
-  console.log(req.body.id)
 
   Appointment.find({user:req.body.id}).populate("doctor")
   .exec((error,data)=>{
@@ -70,16 +68,34 @@ module.exports.GetAppointment=(req,res)=>{
 
 
 
+module.exports.AdminAllAppointmentGet=(req,res)=>{
+  const{doctor}=req.body;
+
+  Appointment.find({doctor:req.body.doctor}).populate("user")
+  .exec((error,data)=>{
+    if (error) return res.status(201).json({ msg: "something is rong",error});
+    if (data) {return res.status(200).json({ data })}
+  })
+}
 
 
+module.exports.DeleteAppointment=(req,res)=>{
+  Appointment.findOneAndDelete({_id:req.body.id})
+  .exec((error,data)=>{
+    if (error) return res.status(201).json({ msg: "something is rong",error});
+    if (data) {return res.status(200).json({msg: "Doctor in checkup patient"})}
+  })
 
+}
 
+module.exports.SearchAppointment=(req,res)=>{
+  Appointment.findOneAndDelete({user:req.body.email,service:req.body.service})
+  .exec((error,data)=>{
+    if (error) return res.status(201).json({ msg: "something is rong",error});
+    if (data) {return res.status(200).json({msg: "Doctor in checkup patient"})}
+  })
 
-
-
-  
-
-
+}
 
 
 

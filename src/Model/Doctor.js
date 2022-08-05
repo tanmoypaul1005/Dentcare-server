@@ -1,9 +1,9 @@
 const { default: mongoose } = require("mongoose");
-// const AutoIncrement = require('mongoose-sequence')(mongoose);
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 const DoctorSchema=new mongoose.Schema({
-    // serial: {
-    //     type: Number,   
-    // },
+    serial: {
+        type: Number,   
+    },
     name: {
         type: String,
         required: true,
@@ -11,13 +11,13 @@ const DoctorSchema=new mongoose.Schema({
     username: {
         type: String,
     },
-
+    img:{type:String},
     email: {
         type: String,
         required: true,
     },
     contactNumber:{
-        type: Number,
+        type: String,
         required: true,
     },
     position:{type:String},
@@ -30,6 +30,6 @@ const DoctorSchema=new mongoose.Schema({
     experience2:{type:String},
     experience3:{type:String},
 }, { timestamps: true });
-// DoctorSchema.plugin(AutoIncrement, {inc_field: 'serial'});
+DoctorSchema.plugin(AutoIncrement, {inc_field: 'serial'});
 module.exports=mongoose.model('Doctor', DoctorSchema);
 
