@@ -8,6 +8,7 @@ const cors = require('cors');
 app.use(cors());
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
+app.use(express.json());
 
 //DataBase Connect
 DataBaseconnect()
