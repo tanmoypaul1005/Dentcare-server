@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8000
+
 require('dotenv').config();
 const DataBaseconnect = require("./config/DataBase");
 
@@ -28,6 +28,6 @@ app.use('/api',DoctorRoutes);
 app.use('/api',DentalCheckupRoutes);
 app.use('/api',CheckupAppointmentRoutes);
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(process.env.PORT, () => {
+  console.log(`Example app listening on port ${process.env.PORT}`)
 })
