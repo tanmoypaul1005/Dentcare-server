@@ -10,8 +10,11 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(express.json());
 
-//DataBase Connect
+
+
+//DataBase Connectd
 DataBaseconnect()
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
