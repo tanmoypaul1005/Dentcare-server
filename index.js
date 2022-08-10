@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 require('dotenv').config();
-const DataBaseconnect = require("./config/DataBase");
+const DataBaseconnect = require("./src/config/DataBase");
 
 const cors = require('cors');
 app.use(cors());
@@ -20,11 +20,11 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-const AuthRoutes=require("./Route/Auth");
-const AppointmentRoutes=require("./Route/Appointment");
-const DoctorRoutes=require('./Route/Doctor');
-const DentalCheckupRoutes=require('./Route/DentalCheckup');
-const CheckupAppointmentRoutes=require('./Route/CheckupAppointment');
+const AuthRoutes=require("./src/Route/Auth");
+const AppointmentRoutes=require("./src/Route/Appointment");
+const DoctorRoutes=require('./src/Route/Doctor');
+const DentalCheckupRoutes=require('./src/Route/DentalCheckup');
+const CheckupAppointmentRoutes=require('./src/Route/CheckupAppointment');
 app.use('/api',AuthRoutes)
 app.use('/api',AppointmentRoutes)
 app.use('/api',DoctorRoutes);
