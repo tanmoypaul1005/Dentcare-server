@@ -4,10 +4,13 @@ const app = express();
 require('dotenv').config();
 const DataBaseconnect = require("./src/config/DataBase");
 const port=process.env.PORT
+
 const cors = require('cors');
 app.use(cors());
-const bodyParser = require('body-parser');
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //DataBase Connectd
