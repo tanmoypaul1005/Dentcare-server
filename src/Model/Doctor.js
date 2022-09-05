@@ -1,5 +1,5 @@
 const { default: mongoose } = require("mongoose");
-// const AutoIncrement = require('mongoose-sequence')(mongoose);
+
 const DoctorSchema=new mongoose.Schema({
     serial: {
         type: Number,   
