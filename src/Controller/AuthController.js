@@ -4,19 +4,19 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const ErrorHander = require("../utils/ErrorHander");
 module.exports.AddUser=(req,res)=>{
-   const{ name,email,password,contactNumber}=req.body; 
+//    const{ name,email,password,contactNumber}=req.body; 
+//    Auth.findOne({email:req.body.email})
+//    .exec((error,data)=>{
+//     if(error) return next(new ErrorHander("Somethings is Wrong", 201));
+//     if(data){return res.status(201).json({msg:'User All Rady Register'})}
 
-   Auth.findOne({email:email})
-   .exec((error,data)=>{
-    if(data){return res.status(201).json({msg:'User All Rady Register'})}
-
-    const _auth=new Auth({name,username:slugify(name).toLowerCase(),email,password,role:'user',contactNumber});
-    _auth.save((error,data)=>{
-      const token = jwt.sign({ _id: data._id, name: data.name, email: data.email }, process.env.JWT_SECRET, { expiresIn: '30d' })
-     if(error){return res.status(400).json({msg:'Somethings is Wrong'})}
-     if(data){return res.status(200).json({msg:'User Create Successfully',token })}
-    });
-   });
+//     const _auth=new Auth({name,username:slugify(name).toLowerCase(),email,password,role:'user',contactNumber});
+//     _auth.save((error,data)=>{
+//       const token = jwt.sign({ _id: data._id, name: data.name, email: data.email }, process.env.JWT_SECRET, { expiresIn: '30d' })
+//      if(error){return res.status(400).json({msg:'Somethings is Wrong'})}
+//      if(data){return res.status(200).json({msg:'User Create Successfully',token })}
+//     });
+//    });
 }
 
 
