@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 //DataBase Connectd
-DataBaseconnect()
+DataBaseconnect();
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
