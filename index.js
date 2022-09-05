@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express();
-const port=process.env.PORT
+
 require('dotenv').config();
 const DataBaseconnect = require("./src/config/DataBase");
-
+const port=process.env.PORT
 const cors = require('cors');
 app.use(cors());
 const bodyParser = require('body-parser');
@@ -16,6 +16,7 @@ DataBaseconnect()
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
+console.log(port)
 
 const AuthRoutes=require("./src/Route/Auth");
 const AppointmentRoutes=require("./src/Route/Appointment");
