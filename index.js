@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express();
+const bodyParser = require('body-parser');
 
 require('dotenv').config();
 const DataBaseconnect = require("./src/config/DataBase");
@@ -15,6 +16,7 @@ app.use(express.json());
 
 //DataBase Connectd
 DataBaseconnect();
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
